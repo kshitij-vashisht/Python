@@ -1,71 +1,88 @@
-#1. Write a python program that takes in a student name, class, and section. It should also take in five subject marks of the students and find the total mark and percentage. Display a result in such a way that their name, class, section, and percentage are printed.
+# Operators questions...
 
-name = input("Enter the Student's Name:")
-classs = input("Enter the Student's Class:")
-section = input("Enter the Student's section:")
+'''Q1) Write a python program that takes in a student name, class, and section. It should also take in five subject marks of the students and find the total marks and percentage. Display a result in such a way that their name, class, and percentageare printed.
+'''
+name = input("\nEnter student name :")
+standard = int(input("\nEnter student class :"))
+section = input("\nEnter student section :")
 
-mark1 = int(input("Enter the marks in Subject 1:"))
-mark2 = int(input("Enter the marks in Subject 2:"))
-mark3 = int(input("Enter the marks in Subject 3:"))
-mark4 = int(input("Enter the marks in Subject 4:"))
-mark5 = int(input("Enter the marks in Subject 5:"))
+subjects_score = []
+for score in range(1, 6, 1):
+  sub_score = int(input(f'\nEnter score of subject {score} :'))
+  subjects_score.append(sub_score)
 
-print("Required student is ", name)
-print(name, "studies in ", classs)
-print("The Section in which", name, "reads is ", section)
+# print(subjects_score)
 
-obtained_marks = mark1 + mark2 + mark3 + mark4 + mark5
-print("Total Marks in 5 Subjects=", obtained_marks)
-percentage = (obtained_marks/500) * 100
-print("Percentage Marks=", percentage)
+total_marks = 500
 
-
-#2. Input 3 numbers and return sum of them.
-a = int(input("Enter first number:"))
-b = int(input("Enter second number:"))
-c = int(input("Enter third number:"))
-
-summ = a + b + c
-print("The Sum of 3 numbers is:", summ)
-
-#3 .Input a number and return square of it.
-a = int(input("Enter the number you want to get square of:"))
-square = a**2
-print("The square of ", a, ":", square)
+obtained_marks = sum(subjects_score)
+print(f'\nMarks obtained by the student {obtained_marks}.\n')
 
 
-#4. Write a program to:
-# Take the temperature in Celsius as input (string format).
-# Convert it into a float.
-# Calculate the equivalent temperature in Fahrenheit using the formula: Fahrenheit=(Celsius×9/5​)+32
-# Print the result in both Celsius and Fahrenheit.
-
-temp =  input("Enter the temperature in Celsius:")
-temp1 = float(temp)
-Fahrenheit = (temp1*(9/5)) + 32
-print("Required temperature in Celsius:", temp1)
-print("Required temperature in Fahrenheit:", Fahrenheit)
+# print(type(obtained_marks))
 
 
-#5. Write a program to calculate the remainder when a number is divided by another number.
-# Input: Two integers from the user.
-# Output: Quotient and remainder.
-a = int(input("Enter Numerator:"))
-b = int(input("Enter Denominator:"))
-remainder = a%b
-quotient = a//b
-print("Quotient when",a, "is divided by", b,":", quotient )
-print("Remainder when",a, "is divided by", b,":", remainder)
+percentile = (obtained_marks/ total_marks) * 100
+print(f'Percentage of {name} of {standard} is {percentile}%.\n')
+
+if percentile >= 90:
+  print("Great!, Keep it up...")
+elif percentile >=70:
+  print("Doing good.")
+else:
+  print("Work harder!")
 
 
-#6. Write a program to calculate using the formula:
-# SI = (P × R × T) / 100
-# where P = Principal, R = Rate, T = Time.
 
-P = int(input("Enter Principal Amount:"))
-R = int(input("Enter Rate of Interest:"))
-T = int(input("Enter Time Period:"))
+''' Q2) Input three numbers and return sum of them. '''
+three_num = []
 
-SI = (P* R*T) / 100
+for num in range(3):
+  numbers = int(input(f"Enter number {num+1}: "))
+  three_num.append(numbers)
 
-print("Simple Interest=", SI)
+sum_of_nums = sum(three_num)
+print(f'Sum of threee numbers is {sum_of_nums}.')
+
+
+
+''' Q3) Input a number and square of it. '''
+num = int(input("Enter a number to square :"))
+print(f'Square of the {num} is {num ** 2}.')
+
+
+
+''' Q4) Write a program which takes the temperature in celcius as I/p in str format, convert it into float, and calculate the equivalent temperature in fahrenheit.'''
+ip_temp = input("Enter the tempersture in celcius: ")
+
+conv_type = float(ip_temp)
+
+conv_temp = (conv_type * 9/5) + 32
+
+print(f'The {ip_temp} degree Celcius is equal to {conv_temp} degree Fahrenheit.')
+
+
+
+''' Q5) Write a program to calculate the remainder when a number is divided by another number. '''
+num_1 = int(input("Enter first number or numenator: "))
+num_2 = int(input("Enter second number or denominator: "))
+
+if num_2 == 0:
+  print("Denominator can't be zero.")
+else:
+  quotient = num_1//num_2
+  remainder = num_1 % num_2
+  print(f'The quotient for {num_1} divided by {num_2} is {quotient}.')
+  print(f'The remainder for {num_1} divided by {num_2} is {remainder}.')
+
+
+
+''' Q6) Write a program to calculate simple interest. '''
+principal = int(input("Enter principal value: "))
+rate = int(input("Enter rate percentage: "))
+time = int(input("Enter time period: "))
+
+Simple_int = (principal * rate * time) / 100
+
+print(f'Simple interest is {Simple_int}.')
+
